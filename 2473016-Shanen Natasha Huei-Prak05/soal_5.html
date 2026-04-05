@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <title>Navigation-2473016</title>
+    <style>
+        body {
+            font-family: serif;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            float: left;
+            width: 120px;
+            text-align: center;
+            border: 2px dotted grey;
+            margin-right: 3px;
+            position: relative;
+        }
+
+        ul li a {
+            display: block;
+            padding: 10px;
+            color: black;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            background: black;
+            color: white;
+        }
+
+        ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+        }
+
+        ul li ul li {
+            float: none;
+            width: 120px;
+            margin: 0;
+        }
+
+        ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#">Home</a></li>
+
+        <li>
+            <a href="#">News</a>
+            <ul>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Movie</a></li>
+            </ul>
+        </li>
+
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+
+
+</body>
+
+</html>

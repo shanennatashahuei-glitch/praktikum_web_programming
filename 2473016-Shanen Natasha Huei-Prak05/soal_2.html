@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <title>Bulat-bulat-2473016</title>
+    <style>
+        div {
+            position: relative;
+            padding: 50px;
+            left: 175px;
+        }
+
+        .circle {
+            position: absolute;
+            width: 150px;
+        }
+
+        .leftbackred {
+            left: 0;
+            z-index: 1;
+        }
+
+        .rightbackred {
+            left: 200px;
+            z-index: 1;
+        }
+
+        .circlemiddle {
+            left: 100px;
+            z-index: 2;
+        }
+
+        .leftfrontredhalf {
+            left: 0;
+            z-index: 3;
+        }
+
+        .rightfrontredhalf {
+            left: 200px;
+            z-index: 3;
+        }
+
+    
+    </style>
+</head>
+    <body>
+        <div>
+            <!-- behind -->
+            <img src="src/circle-red.png" class="circle leftbackred">
+            <img src="src/circle-red.png" class="circle rightbackred">
+            <!-- middle -->
+            <img src="src/circle-purple.png" class="circle circlemiddle">
+            <!-- front -->
+            <img src="src/circle-red-half.png" class="circle leftfrontredhalf">
+            <img src="src/circle-red-half.png" class="circle rightfrontredhalf">
+        </div>
+          
+    </body>
+</html>
