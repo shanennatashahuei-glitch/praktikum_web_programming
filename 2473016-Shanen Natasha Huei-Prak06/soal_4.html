@@ -1,0 +1,109 @@
+<html>
+    <head>
+        <title>Number Convertion-2473016</title>
+        <style>
+            .blue {
+                color: blue;
+                font-weight: bold;
+            }
+
+            button {
+                color: blue;
+                font-weight: bold;
+            }
+
+            select {
+                color: black;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function proses() {
+                var input = document.getElementById("input").value;
+                var pilihan = document.getElementById("pilihan").value;
+                var hasil = "";
+
+                if (pilihan == "decbin") {
+                    
+                    if (isNaN(input) || input == "" || input < 0 || input > 255) {
+                        alert("Input decimal harus angka 0 s/d 255");
+                        return;
+                    }
+
+                    var angka = parseInt(input);
+                    
+                    while (angka > 0) {
+                        hasil = (angka % 2) + hasil;
+                        angka = parseInt(angka / 2);
+                    }
+
+                    if (hasil == "") {
+                        hasil = "0";
+                    }
+                }
+
+                else if (pilihan == "bindec") {
+                    
+                    if (input.length != 8) {
+                        alert("Biner harus 8 digit");
+                        return;
+                    }
+
+                    for (var i = 0; i < input.length; i++) {
+                        if (input[i] != "0" && input[i] != "1") {
+                            alert("Input biner hanya boleh 0 atau 1");
+                            return;
+                        }
+                }
+
+                var pangkat = 7;
+                var total = 0;
+
+                for (var i = 0; i < input.length; i++) {
+                    total = total + (parseInt(input[i]) * Math.pow(2, pangkat));
+                    pangkat--;
+                }
+                
+                hasil = total;
+            }
+
+            document.getElementById("output").value = hasil;
+
+        }
+
+        function resetForm() {
+            document.getElementById("input").value = "";
+            document.getElementById("output").value = "";
+        }
+        </script>
+    </head>
+    <body>
+        <table border ="1" cellpadding="10">
+            <tr>
+                <td class = "blue">Input: </td>
+                <td><input type="text" id="input"></td>
+            </tr>
+
+            <tr>
+                <td class="blue">Output: </td>
+                <td><input type="text" id="output" readonly></td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <select id="pilihan">
+                        <option value="decbin">decimal-biner</option>
+                        <option value="bindec">biner-decimal</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button onclick="proses()">PROSES</button>
+                    <button onclick="resetForm()">RESET</button>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiplication-2473016</title>
+        <script type ="text/javascript">
+            function mulai() {
+                var input;
+
+                while (true) {
+                    input = prompt("A number?");
+
+                    if (!isNaN(input)&& input !="") {
+                        break;
+                    } else {
+                        alert("Must be a number!");
+                    }
+                }
+
+                var angka = parseInt(input);
+
+                document.write("<table border='1' cellpadding='10'>");
+
+                for (var i=1; i<=angka; i++) {
+                    document.write("<tr>");
+                    document.write("<td>" + i + "</td>");
+                    document.write("<td>x</td>");
+                    document.write("<td>" + angka + "</td>");
+                    document.write("<td>=</td>");
+                    document.write("<td>"+(i*angka)+"</td>");
+                    document.write("</tr>");
+                }
+
+                document.write("</table>");
+
+            }
+        </script>
+
+    </head>
+
+    <body onload="mulai()"></body>
+
+    </body>
+</html>

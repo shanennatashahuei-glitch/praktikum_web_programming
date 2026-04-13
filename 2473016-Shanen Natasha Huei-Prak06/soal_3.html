@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pyramid-2473016</title>
+        <script type="text/javascript">
+            function proses() {
+                var input = document.getElementById("tinggi").value;
+
+                if (isNaN(input)||input == "") {
+                    alert("Input harus angka");
+                    return;
+                }
+
+                var tinggi = parseInt(input);
+                var hasil = "<table border='0' width = '800' height = '600'>";
+                
+                for (var i = 1; i<= tinggi; i++) {
+                    hasil += "<tr>";
+                        for (var j =1; j <= tinggi - i; j++) {
+                            hasil += "<td></td>";
+                        }
+
+                        for (var k =1; k<= (2*i-1); k++) {
+                            hasil += "<td style = 'background-color: orange; width: 20px; height: 20px;'></td>";
+                        }
+
+                        hasil += "</tr>";
+                    
+                }
+                hasil += "</table";
+
+                document.getElementById("output").innerHTML = hasil;
+            }
+        </script>
+    </head>
+    <body>
+        Tinggi Piramida:
+        <input type="text" id="tinggi">
+        <button onclick="proses()">proses</button>
+
+        <br>
+        <br>
+        <div id ="output"></div>
+        
+    </body>
+</html>
