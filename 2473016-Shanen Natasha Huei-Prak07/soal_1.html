@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character Counter - 2473016</title>
+        <script type="text/javascript">
+            function call_onKeyPress(ob) {
+                obval = ob.value;
+
+                if (obval.length>256) {
+                    ob.value = obval.substr(0, 256);
+                    obval = ob.value;
+                }
+                document.getElementById("txt2").value=obval.length+"/256";
+            }
+        </script>
+    </head>
+    <body>
+        <table border = "0" cellpadding = "5">
+            <tr>
+                <td>Judul</td>
+                <td>:</td>
+                <td><input type="text" size="40"></td>
+            </tr>
+
+            <tr>
+                <td valign="top">Deskripsi</td>
+                <td valign="top">:</td>
+                <td>
+                    <textarea rows="8" cols="40"
+                    onkeyup="call_onKeyPress(this)"
+                    onkeydown="call_onKeyPress(this)"></textarea>
+                    <br>
+                    <input type="text" id="txt2" value="0/256" readonly>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

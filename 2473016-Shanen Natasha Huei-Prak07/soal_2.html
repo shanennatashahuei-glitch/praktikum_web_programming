@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Highlitghted Table-2473016</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 500px;
+            }
+
+            th {
+                background-color: #d6e0d6;
+                padding: 10px;
+                text-align: left;
+            }
+
+            td {
+                padding: 10px;
+            }
+
+            .c1 {
+                background-color: #aecbfa;
+            }
+
+            .c2 {
+                background-color: #f6c7a1;
+            }
+
+            .c3 {
+                background-color: #ccffaa;
+            }
+        </style>
+        <script type="text/javascript">
+            function highlightRow(id) {
+                document.getElementById(id).className="c3";
+            }
+
+            function normalRow(id, warnaasli) {
+                document.getElementById(id).className = warnaasli;
+            }
+        </script>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <th>Position</th>
+                <th>Programming Language</th>
+                <th>Ratings</th>
+            </tr>
+
+            <tr id ="row1" class="c1"
+                onmouseover = "highlightRow('row1')"
+                onmouseout = "normalRow('row1', 'c1')">
+                <td>1</td>
+                <td>C</td>
+                <td>18.058%</td>
+            </tr>
+
+            <tr id="row2" class="c2"
+                onmouseover="highlightRow('row2')"
+                onmouseout="normalRow('row2', 'c2')">
+                <td>2</td>
+                <td>Java</td>
+                <td>18.051%</td>
+            </tr>
+
+            <tr id ="row3" class = "c1"
+                onmouseover="highlightRow('row3')"
+                onmouseout="normalRow('row3', 'c1')">
+                <td>3</td>
+                <td>C++</td>
+                <td>9.707%</td>
+            </tr>
+
+            <tr id="row4" class="c2"
+                onmouseover="highlightRow('row4')"
+                onmouseout="normalRow('row4', 'c2')">
+                <td>4</td>
+                <td>PHP</td>
+                <td>9.662%</td>
+            </tr>
+
+            <tr id="row5" class="c1"
+                onmouseover="highlightRow('row5')"
+                onmouseout="normalRow('row5', 'c1')">
+                <td>5</td>
+                <td>(Visual) Basic</td>
+                <td>6.392%</td>
+            </tr>
+        </table>
+    </body>
+</html>

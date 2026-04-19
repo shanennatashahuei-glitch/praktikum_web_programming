@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form-2473016</title>
+        <style>
+            .box {
+                border: 1px solid black;
+                display: inline-block;
+                padding: 10px;
+                font-family: monospace;
+                font-size: 24px;
+                box-shadow: 3px 3px 8px gray;
+                resize: both;
+                overflow: auto;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            td {
+                padding: 3px;
+                vertical-align: middle;
+            }
+
+            .label {
+                width: 80px;
+                text-align: left;
+            }
+
+            input[type=text] {
+                font-size: 18px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            #hasil {
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 18px;
+            }
+
+            button {
+                font-size: 18px;
+                height: 32px;
+                width: 60px;
+                margin-right: 0px;
+            }
+
+            select {
+                font-size: 18px;
+                height: 32px;
+                width: 160px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            var dataArray = [];
+
+            function addData() {
+                var input = document.getElementById("data").value;
+
+                if (input == "" || isNaN(input)) {
+                    alert("Must be a number!");
+                    return;
+                }
+
+                dataArray.push(parseInt(input));
+                document.getElementById("data").value = "";
+                document.getElementById("data").focus();
+            }
+
+            function selectOperation() {
+                var pilihan = document.getElementById("operasi").value;
+                var hasil = "";
+
+                if (pilihan == "display") {
+                    hasil = dataArray.join(", ");
+                }
+                else if (pilihan == "count") {
+                    hasil = dataArray.length;
+                }
+                else if (pilihan == "sum") {
+                    var total = 0;
+                    for (var i = 0; i<dataArray.length; i++) total += dataArray[i];
+                    hasil = total;
+                }
+                else if (pilihan == "average") {
+                    var total = 0;
+                    for (var i =0; i<dataArray.length; i++) total += dataArray[i];
+                    hasil = total/dataArray.length;
+                }
+                else if (pilihan == "max") {
+                    var max = dataArray[0];
+                    for (var i =1; i<dataArray.length; i++)
+                        if (dataArray[i] > max) max = dataArray[i];
+                    hasil = max;
+                }
+                else if (pilihan == "min") {
+                    var min = dataArray[0];
+                    for (var i = 1; i<dataArray.length; i ++)
+                        if (dataArray[i] < min) min = dataArray[i];
+                    hasil = min;
+                }
+                else if (pilihan == "ganjil") {
+                    var ganjil = [];
+                    for (var i = 0; i<dataArray.length; i++)
+                        if (dataArray[i] % 2 !=0) ganjil.push(dataArray[i]);
+                    hasil = ganjil.join(", ");
+                }
+                else if (pilihan == "genap") {
+                    var genap = [];
+                    for (var i =0; i<dataArray.length; i++)
+                        if (dataArray[i] % 2 == 0) genap.push(dataArray[i]);
+                    hasil = genap.join(", ");
+                }
+                else if (pilihan == "hapus") {
+                    dataArray = [];
+                    hasil = "";
+                }
+                document.getElementById("hasil").value = hasil;
+            }
+        </script>
+    </head>
+    <body>
+        <div class = "box">
+            <table>
+                <tr>
+                    <td class="label">Data</td>
+                    <td><input type="text" id="data"></td>
+                </tr>
+            
+                <tr>
+                    <td><button onclick="addData()">Add</button></td>
+                    <td>
+                        <select id="operasi" onchange="selectOperation()">
+                            <option value="">Pilih Operasi</option>
+                            <option value="display">Display</option>
+                            <option value="count">Count</option>
+                            <option value="sum">Sum</option>
+                            <option value="average">Average</option>
+                            <option value="max">Max</option>
+                            <option value="min">Min</option>
+                            <option value="ganjil">Ganjil</option>
+                            <option value="genap">Genap</option>
+                            <option value="hapus">Hapus</option>
+                        </select>
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td class="label">Hasil</td>
+                    <td><input type="text" id="hasil" readonly></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
