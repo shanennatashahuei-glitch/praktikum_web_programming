@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Nama-2473016</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #box {
+            width: 300px;
+            border: 3px solid lightgray;
+            padding: 10px;
+        }
+
+        .nama {
+            font-size: 25px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#add").click(function () {
+                var nama = $("#txtnama").val();
+
+                $("<div class='nama'>" + nama + "</div>").appendTo("#listnama");
+
+                $("#txtnama").val("");
+            });
+
+            $("#search").click(function () {
+                var cari = $("#txtnama").val();
+
+                $(".nama").css("text-decoration", "none");
+
+                $(".nama:contains('" + cari + "')").css("text-decoration", "underline");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" id="txtnama">
+
+        <button id="add">Add</button>
+
+        <button id="search">Search</button>
+
+        <div id="listnama">
+            <div class="nama">John Resig</div>
+            <div class="nama">George Martin</div>
+            <div class="nama">Malcom John Sinclair</div>
+            <div class="nama">J. Ohn</div>
+        </div>
+    </div>
+</body>
+
+</html>

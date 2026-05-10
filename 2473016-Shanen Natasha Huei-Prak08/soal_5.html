@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find Text-2473016</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        #box {
+            width: 350px;
+            border: 3px solid lightgray;
+            padding: 10px;
+        }
+
+        .nama {
+            font-size: 25px;
+        }
+
+        input {
+            width: 220px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("#txtfind").keyup(function () {
+                var find = $("#txtfind").val();
+
+                $(".nama").css("color", "black");
+
+                if (find !="") {
+                $(".nama:contains('" + find + "')").css("color", "red");
+                }
+                });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="box">
+        <input type="text" id="txtfind">
+
+        <div class="nama">Sun Microsystem</div>
+        <div class="nama">Apache Software Foundation</div>
+        <div class="nama">Oracle Coorporation</div>
+        <div class="nama">International Business Machines</div>
+        <div class="nama">Microsoft Coorporation</div>
+        <div class="nama">Apple Inc</div>
+        <div class="nama">Sap Ag</div>
+        <div class="nama">Accenture</div>
+        <div class="nama">Computer Sciences Coorporation</div>
+        <div class="nama">Google</div>
+        <div class="nama">Softbank</div>
+        <div class="nama">Yahoo</div>
+    </div>
+</body>
+
+</html>

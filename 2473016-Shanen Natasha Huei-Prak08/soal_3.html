@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mengubah warna kotak - 2473016</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            float: left;
+            border: 2px blue solid;
+        }
+
+        #container {
+            width: 500px;
+            height: 120px;
+            border: none;
+        }
+
+        button {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            $("div.kotak").click(function () {
+
+                $(this).css("background-color", "red");
+                $(this).attr("id", "merah");
+            });
+
+            $("button").click(function () {
+
+                $("div.kotak").each(function () {
+
+                    if ($(this).attr("id") == "merah") {
+                        return false;
+                    }
+
+                    $(this).css("background-color", "yellow");
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <button>Change Colors</button>
+
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+    </div>
+</body>
+
+</html>

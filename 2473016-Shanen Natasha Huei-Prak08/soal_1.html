@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu Hover - 2473016</title>
+
+        <script src ="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <style>
+            ol {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            #menu {
+                width: 700px;
+                height: 150px;
+                border: 3px solid lightgray;
+                padding: 10px;
+            }
+
+            li.item {
+                float: left;
+                margin-right: 10px;
+                width: 150px;
+            }
+
+            li.item > a {
+                display: block;
+                background: deeppink;
+                color: white;
+                text-decoration: none;
+                padding: 5px;
+                font-weight: bold;
+            }
+
+            li.item ol {
+                border: 3px solid deeppink;
+            }
+
+            li.item ol li {
+                padding: 3px;
+                background: white;
+            }
+
+            li.item ol li a {
+                color: black;
+                text-decoration: underline;
+            }
+        </style>
+
+        <script>
+            $(document).ready(function(){
+
+            $("li.item ol").hide();
+
+            $("li.item").hover(
+                function() {
+                    $("li.item ol").hide();
+                    $(this).children("ol").show();
+                },
+
+                function() {
+                    $(this).children("ol").hide();
+                }
+            );
+        });
+        </script>
+    </head>
+    <body>
+        <ol id="menu">
+            <li class="item">
+                <a href="#">jQuery</a>
+
+                <ol>
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ol>
+            </li>
+
+            <li class="item">
+                <a href="#">Community</a>
+
+                <ol>
+                    <li><a href="#">Mailing List</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Demos</a></li>
+                    <li><a href="#">Plugins</a></li>
+                </ol>
+            </li>
+
+            <li class="item">
+                <a href="#">Development</a>
+
+                <ol>
+                    <li><a href="#">Source Code</a></li>
+                    <li><a href="#">Bug Tracking</a></li>
+                    <li><a href="#">Recent Changes</a></li>
+                </ol>
+            </li>
+        </ol>
+    </body>
+</html>

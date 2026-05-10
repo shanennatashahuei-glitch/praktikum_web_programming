@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkbox table-2473016</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".header").click(function () {
+                var flag = $(this).prop("checked");
+                $(".body").prop("checked", flag);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="50" align="center">
+                <input class="header" type="checkbox"><br>
+                <hr>
+
+                <input class="checkbox body" type="checkbox"><br><br>
+                <input class="checkbox body" type="checkbox"><br><br>
+                <input class="checkbox body" type="checkbox"><br><br>
+                <input class="checkbox body" type="checkbox"><br>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
