@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Soal 2 - 2473016</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: "Times New Roman";
+            font-size: 14px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 420px;
+            box-shadow: 3px 3px 5px gray;
+        }
+
+        td {
+            border: 1px solid gray;
+            padding: 4px;
+        }
+
+        #hasil {
+            width: 780px;
+
+            border-top: 3px double gray;
+            border-left: 3px double gray;
+            border-right: 3px double gray;
+            border-bottom: 3px double gray;
+            margin-top: 20px;
+            padding: 0px;
+        }
+
+        .header {
+
+            text-align: center;
+            border-bottom: 3px double gray;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 10px;
+        }
+
+        .footer {
+            border-top: 3px double gray;
+            padding: 5px;
+        }
+
+        .item {
+            margin-bottom: 25px;
+        }
+
+        a {
+            color: blue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>Title</td>
+        </tr>
+
+        <tr>
+            <td>Content</td>
+        </tr>
+
+        <tr>
+            <td>Generator</td>
+        </tr>
+    </table>
+
+    <br>
+
+    <button id="look">Look</button>
+
+
+
+    <div id="hasil"></div>
+
+    <script>
+        $(document).ready(function () {
+            $("#look").click(function () {
+                var data = {
+
+                    "title": "Portal S1-Sistem Informasi",
+
+                    "link": "http://si.itmaranatha.org",
+
+                    "generator": "S1-SI FIT UKM",
+
+                    "items": [
+
+                        {
+                            "title": "BIE02 - Pemrograman Web",
+
+                            "link": "https://morning.maranatha.edu/course/view.php?id=4245",
+
+                            "universitas": {
+                                "m": "http://www.itmaranatha.org/"
+                            },
+
+                            "description": "Matakuliah ini akan mengenalkan dan mengajarkan mahasiswa tentang dasar-dasar dalam pemrograman web. Di sini mahasiswa akan mempelajari penulisan tag-tag HTML sebagai pembentuk dasar dari suatu halaman web, mahasiswa juga akan mempelajari CSS sebagai pelengkap fungsionalitas dari HTML.<br/><br/>Selain itu mahasiswa juga akan mempelajari pemrograman web di sisi klien (client side scripting) dengan menggunakan Java Script. Dan sebagai pengenalan teknologi baru, mahasiswa juga akan mempelajari sekilas mengenai teknologi JQuery dan teknologi JSON.",
+
+                            "published": "01-January-2023",
+
+                            "author": "Dosen S1-SI",
+
+                            "tags": "S1-Sistem Informasi, Pemrograman Web"
+                        },
+
+                        {
+                            "title": "IS407 - Basis Data 2",
+
+                            "link": "http://si.itmaranatha.org/index.php/is407-basis-data-2",
+
+                            "universitas": {
+                                "m": "http://www.itmaranatha.org/"
+                            },
+
+                            "description": "Mata kuliah ini mengajarkan kepada mahasiswa bahasa pemrograman SQL yang meliputi : Perintah SQL untuk mengambil data dari tabel dan mengurutkan data, fungsi-fungsi yang terdapat pada oracle seperti fungsi tanggal dll, Join table, Operasi DDL, DML, Constraint, Subquery, View, Index dan PL/SQL.",
+
+                            "published": "01-January-2023",
+
+                            "author": "Dosen S1-SI",
+
+                            "tags": "S1-Sistem Informasi, Basis Data 2"
+                        }
+
+                    ]
+                };
+
+
+
+                var isi = "";
+
+
+                isi += "<div class='header'>";
+
+                isi += "<a href='" + data.link + "' target='_blank'>";
+
+                isi += data.title;
+
+                isi += "</a>";
+
+                isi += "</div>";
+
+                isi += "<div class='content'>";
+
+
+
+                $.each(data.items, function (i, item) {
+
+                    isi += "<div class='item'>";
+
+
+
+
+                    isi += "<a href='" + item.link + "' target='_blank'>";
+
+                    isi += item.title;
+
+                    isi += "</a>";
+
+
+
+
+                    isi += "<br>";
+
+                    isi += "By : " + item.author + " / ";
+
+                    isi += "<i>" + item.published + "</i>";
+
+
+
+
+                    isi += "<p>";
+
+                    isi += item.description;
+
+                    isi += "</p>";
+
+
+
+                    isi += "Universitas : ";
+
+                    isi += "<a href='" + item.universitas.m + "' target='_blank'>";
+
+                    isi += "Click Here";
+
+                    isi += "</a>";
+
+
+
+
+                    isi += "<br>";
+
+                    isi += "Tag(s) : " + item.tags;
+
+                    isi += "</div>";
+
+                });
+
+
+
+                isi += "</div>";
+
+
+
+
+                isi += "<div class='footer'>";
+
+                isi += "©S1-SI FIT UKM";
+
+                isi += "</div>";
+
+
+
+                $("#hasil").html(isi);
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

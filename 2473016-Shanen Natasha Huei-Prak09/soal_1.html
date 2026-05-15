@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daftar Mahasiswa JSON-2473016</title>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 600px;
+                margin-top: 20px;
+            }
+
+            th {
+                background-color: black;
+                color: white;
+                border: 1px solid gray;
+                padding: 10px;
+            }
+
+            td {
+                border: 1px solid gray;
+                padding: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>
+            Selamat! Berikut adalah Daftar Mahasiwa yang mendapat Nilai A Pemograman Web SI Tahun Ajaran 2023/2024
+        </h1>
+
+        <input type="radio" name="kelas" value="all">All<br>
+        <input type="radio" name="kelas" value="A">Kelas A<br>
+        <input type="radio" name="kelas" value="B">Kelas B<br>
+
+        <button id="search">Search</button>
+
+        <div id="hasil"></div>
+
+        <script>
+            $(document).ready(function () {
+                $("#search").click(function () {
+                    var pilihan =$(":radio[name='kelas']:checked").val();
+
+                    var fileJSON ="";
+
+                    if (pilihan == "all") {
+                        fileJSON = "nilai.js";
+                    }
+                    else if (pilihan == "A") {
+                        fileJSON = "nilaiA.js";
+                    }
+                    else if (pilihan == "B") {
+                        fileJSON = "nilaiB.js";
+                    }
+                    else {
+                        alert("Pilih kelas terlebih dahulu!");
+                        return;
+                    }
+
+                    $.getJSON(fileJSON, function(data) {
+                        var tabel ="";
+
+                        tabel += "<table>";
+
+                            tabel += "<tr>"
+                            tabel += "<th>NRP</th>";
+                            tabel += "<th>NAMA</th>";
+                            tabel += "<th>KELAS</th>";
+                            tabel += "<th>NILAI AKHIR</th>";
+                            tabel += "</tr>";
+
+                            $.each(data, function (i, item) {
+                                tabel += "<tr>";
+                                    
+                                    tabel += "<td>"+item.nrp + "</td>";
+                                    tabel += "<td>"+item.nama + "</td>";
+                                    tabel += "<td>"+item.kelas + "</td>";
+                                    tabel += "<td>"+item.nilai + "</td>";
+                                    tabel += "</tr>";
+                            });
+
+                            tabel += "</table>";
+
+                            $("#hasil").html(tabel);
+
+                            $("#hasil table tr:odd").css("background-color", "#FFFFCC");
+                            $("#hasil table tr:even").css("background-color", "#CCFFAA");
+
+                            $("#hasil table tr:first").css ({
+                                "background-color": "black", "color":"white"
+                            });
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
